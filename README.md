@@ -4,9 +4,7 @@ SwiftUI MVP for an iOS app that helps UTS students discover clubs, compare event
 
 ## GitHub link
 
-After creating the repository, replace this line with:
-
-`https://github.com/tuwang2301/UTSClubFinder`
+https://github.com/tuwang2301/UTSClubFinder
 
 ## App Concept
 
@@ -24,14 +22,7 @@ Problem solved: club discovery is usually scattered across stalls, posters, soci
 
 ## How To Open
 
-Option A, using XcodeGen:
-
-1. Install XcodeGen on macOS.
-2. Run `xcodegen generate`.
-3. Open `UTSClubFinder.xcodeproj`.
-4. Run on an iOS simulator or physical iPhone.
-
-Option B, manual Xcode setup:
+Recommended Xcode setup:
 
 1. Create a new iOS App project in Xcode named `UTSClubFinder`.
 2. Choose SwiftUI and Swift.
@@ -39,33 +30,22 @@ Option B, manual Xcode setup:
 4. Add `UTSClubFinder/Resources/Info.plist` keys to the app target Info settings.
 5. Run on an iOS simulator or physical iPhone.
 
-The source is split so each group member can own one or two screens without blocking the others.
-
-## Windows Codex To Mac Xcode Workflow
-
-Use Windows as the coding machine and Mac as the build/test machine.
-
-1. Windows: edit files with Codex.
-2. Windows: commit and push changes to GitHub.
-3. Mac: pull the latest changes.
-4. Mac: open Xcode and run the simulator.
-5. Mac: copy any Xcode build/runtime error back to Codex on Windows.
-6. Windows: fix, commit, and push again.
-
-Mac commands:
+Optional XcodeGen setup:
 
 ```bash
-git clone https://github.com/tuwang2301/UTSClubFinder.git
-cd UTSClubFinder
+brew install xcodegen
 xcodegen generate
 open UTSClubFinder.xcodeproj
 ```
 
-If `xcodegen` is missing on Mac:
+Clone on a Mac:
 
 ```bash
-brew install xcodegen
+git clone https://github.com/tuwang2301/UTSClubFinder.git
+cd UTSClubFinder
 ```
+
+The source is split so each group member can own one or two screens without blocking the others.
 
 ## Git Branch Workflow
 
@@ -164,27 +144,6 @@ git commit -m "fix(map): resolve merge conflict with main"
 ```
 
 Do not force push to `main`. Do not rewrite another member's commits unless the whole group agrees.
-
-## First Repository Setup
-
-On Windows, after installing and logging into GitHub CLI:
-
-```powershell
-gh auth login
-gh repo create tuwang2301/UTSClubFinder --public --source . --remote origin --push
-```
-
-If you prefer a private repository:
-
-```powershell
-gh repo create tuwang2301/UTSClubFinder --private --source . --remote origin --push
-```
-
-After the first push, teammates can clone:
-
-```bash
-git clone https://github.com/tuwang2301/UTSClubFinder.git
-```
 
 ## Suggested Group Split
 
