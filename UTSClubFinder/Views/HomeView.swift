@@ -13,7 +13,9 @@ struct HomeView: View {
                         .font(.title3.weight(.bold))
 
                     ForEach(repository.featuredClubs) { club in
-                        NavigationLink(value: club) {
+                        NavigationLink {
+                            ClubDetailView(club: club)
+                        } label: {
                             ClubCardView(
                                 club: club,
                                 isFavourite: repository.isFavourite(club),
@@ -28,9 +30,6 @@ struct HomeView: View {
         }
         .background(AppTheme.surface)
         .navigationTitle("UTS Club Finder")
-        .navigationDestination(for: Club.self) { club in
-            ClubDetailView(club: club)
-        }
     }
 
     private var hero: some View {

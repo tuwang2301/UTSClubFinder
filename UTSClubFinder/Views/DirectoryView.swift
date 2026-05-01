@@ -45,7 +45,9 @@ struct DirectoryView: View {
                     .listRowBackground(AppTheme.surface)
                 } else {
                     ForEach(filteredClubs) { club in
-                        NavigationLink(value: club) {
+                        NavigationLink {
+                            ClubDetailView(club: club)
+                        } label: {
                             ClubCardView(
                                 club: club,
                                 isFavourite: repository.isFavourite(club),
@@ -64,8 +66,5 @@ struct DirectoryView: View {
         .background(AppTheme.surface)
         .navigationTitle("Clubs")
         .searchable(text: $viewModel.searchText, prompt: "Search clubs or tags")
-        .navigationDestination(for: Club.self) { club in
-            ClubDetailView(club: club)
-        }
     }
 }

@@ -14,7 +14,9 @@ struct SavedClubsView: View {
                 .listRowBackground(AppTheme.surface)
             } else {
                 ForEach(repository.savedClubs) { club in
-                    NavigationLink(value: club) {
+                    NavigationLink {
+                        ClubDetailView(club: club)
+                    } label: {
                         ClubCardView(
                             club: club,
                             isFavourite: true,
@@ -31,8 +33,5 @@ struct SavedClubsView: View {
         .scrollContentBackground(.hidden)
         .background(AppTheme.surface)
         .navigationTitle("Saved")
-        .navigationDestination(for: Club.self) { club in
-            ClubDetailView(club: club)
-        }
     }
 }
