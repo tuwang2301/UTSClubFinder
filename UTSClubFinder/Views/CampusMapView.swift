@@ -17,7 +17,9 @@ struct CampusMapView: View {
     var body: some View {
         VStack(spacing: 0) {
             Map(position: $cameraPosition, selection: $selectedClub) {
-                UserAnnotation()
+                if canShowUserLocation {
+                    UserAnnotation()
+                }
 
                 ForEach(repository.clubs) { club in
                     Marker(club.name, systemImage: club.category.icon, coordinate: club.coordinate)
@@ -26,7 +28,9 @@ struct CampusMapView: View {
                 }
             }
             .mapControls {
-                MapUserLocationButton()
+                if canShowUserLocation {
+                    MapUserLocationButton()
+                }
                 MapCompass()
                 MapScaleView()
             }
@@ -97,5 +101,10 @@ struct CampusMapView: View {
             return "Enable alerts to monitor nearby club locations."
         }
         return "Monitoring \(geofenceManager.monitoredClubIDs.count) club regions."
+    }
+
+    private var canShowUserLocation: Bool {
+        geofenceManager.authorizationStatus == .authorizedAlways
+            || geofenceManager.authorizationStatus == .authorizedWhenInUse
     }
 }

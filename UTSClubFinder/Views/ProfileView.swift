@@ -24,13 +24,12 @@ struct ProfileView: View {
                 .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
 
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("MVP progress")
+                    Text("Interests")
                         .font(.headline)
 
-                    ProgressRow(title: "Search clubs", isDone: true)
-                    ProgressRow(title: "Save favourites", isDone: true)
-                    ProgressRow(title: "Map discovery", isDone: true)
-                    ProgressRow(title: "Geofence demo", isDone: !geofenceManager.monitoredClubIDs.isEmpty)
+                    InterestRow(icon: "cpu.fill", title: "Technology", detail: "Swift, product design, and hackathons")
+                    InterestRow(icon: "globe.asia.australia.fill", title: "Culture", detail: "Meetups for local and international students")
+                    InterestRow(icon: "calendar", title: "Events", detail: "Prefer after-class sessions on campus")
                 }
                 .padding(18)
                 .background(Color.white)
@@ -56,15 +55,23 @@ struct ProfileView: View {
     }
 }
 
-private struct ProgressRow: View {
+private struct InterestRow: View {
+    let icon: String
     let title: String
-    let isDone: Bool
+    let detail: String
 
     var body: some View {
-        HStack {
-            Image(systemName: isDone ? "checkmark.circle.fill" : "circle")
-                .foregroundStyle(isDone ? AppTheme.utsGreen : AppTheme.muted)
-            Text(title)
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: icon)
+                .foregroundStyle(AppTheme.utsGreen)
+                .frame(width: 24)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title)
+                    .font(.subheadline.weight(.semibold))
+                Text(detail)
+                    .font(.caption)
+                    .foregroundStyle(AppTheme.muted)
+            }
             Spacer()
         }
     }
