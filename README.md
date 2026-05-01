@@ -24,26 +24,28 @@ Problem solved: club discovery is usually scattered across stalls, posters, soci
 
 Recommended Xcode setup:
 
+1. Clone the repository on a Mac.
+2. Double-click `UTSClubFinder.xcodeproj`.
+3. Select an iPhone simulator.
+4. Press Run in Xcode.
+
+Clone command:
+
+```bash
+git clone https://github.com/tuwang2301/UTSClubFinder.git
+cd UTSClubFinder
+open UTSClubFinder.xcodeproj
+```
+
+If Xcode asks for signing, select the `UTSClubFinder` app target, open Signing & Capabilities, then choose your Apple Developer team or personal team.
+
+Manual fallback if the project file ever breaks:
+
 1. Create a new iOS App project in Xcode named `UTSClubFinder`.
 2. Choose SwiftUI and Swift.
 3. Drag the `UTSClubFinder` folder into the Xcode project.
 4. Add `UTSClubFinder/Resources/Info.plist` keys to the app target Info settings.
 5. Run on an iOS simulator or physical iPhone.
-
-Optional XcodeGen setup:
-
-```bash
-brew install xcodegen
-xcodegen generate
-open UTSClubFinder.xcodeproj
-```
-
-Clone on a Mac:
-
-```bash
-git clone https://github.com/tuwang2301/UTSClubFinder.git
-cd UTSClubFinder
-```
 
 The source is split so each group member can own one or two screens without blocking the others.
 
