@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>UTS Club Finder uses your location to show nearby clubs on campus.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>UTS Club Finder uses geofencing to notify you when you are near a saved club location.</string>
+    <key>NSUserNotificationsUsageDescription</key>
+    <string>UTS Club Finder sends optional alerts when you are near club events or meeting places.</string>
+</dict>
+</plist>
