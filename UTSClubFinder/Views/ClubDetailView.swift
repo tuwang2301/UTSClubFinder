@@ -3,8 +3,24 @@ import SwiftUI
 struct ClubDetailView: View {
     @EnvironmentObject private var repository: ClubRepository
     let club: Club
-
+    
+    @State private var userName = ""
+    @State private var userEmail = ""
+    @State private var userStudyArea = ""
+    @State private var userMessage = ""
+    @State private var showingForm = false
     @State private var showingJoinConfirmation = false
+    
+    var isFormValid: Bool {
+        // Rule: Name cannot be empty
+        let hasName = !userName.trimmingCharacters(in: .whitespaces).isEmpty
+        
+        // Rule: Email must end with @student.uts.edu.au or contain "uts"
+        let lowerEmail = userEmail.lowercased()
+        let hasValidEmail = lowerEmail.hasSuffix("@student.uts.edu.au") || lowerEmail.contains("uts")
+        
+        return hasName && hasValidEmail
+    }
 
     var body: some View {
         ScrollView {
@@ -19,6 +35,37 @@ struct ClubDetailView: View {
         .background(AppTheme.surface)
         .navigationTitle(club.name)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showingForm) {
+            NavigationStack {
+                Form {
+                    Section(header: Text("Student Information")) {
+                        TextField("Full Name", text: $userName)
+                        TextField("Student Email", text: $userEmail)
+                            .autocapitalization(.none)
+                            .keyboardType(.emailAddress)
+                        TextField("Study Area (e.g. IT, Design)", text: $userStudyArea)
+                    }
+                    
+                    Section(header: Text("Message for the Club (Optional)")) {
+                        TextEditor(text: $userMessage)
+                            .frame(height: 80)
+                    }
+                    
+                    Section {
+                        Button("Submit Registration") {
+                            showingForm = false
+                            showingJoinConfirmation = true // Show the success message!
+                        }
+                        .disabled(!isFormValid) // This button stays gray until the email is correct
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+                .navigationTitle("Register Interest")
+                .toolbar {
+                    Button("Cancel") { showingForm = false }
+                }
+            }
+        }
         .alert("Interest registered", isPresented: $showingJoinConfirmation) {
             Button("Done", role: .cancel) {}
         } message: {
@@ -117,7 +164,7 @@ struct ClubDetailView: View {
             .buttonStyle(.borderedProminent)
 
             Button {
-                showingJoinConfirmation = true
+                showingForm = true
             } label: {
                 Label("Register interest", systemImage: "checkmark.circle.fill")
                     .frame(maxWidth: .infinity)
