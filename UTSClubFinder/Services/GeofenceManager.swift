@@ -30,6 +30,7 @@ final class GeofenceManager: NSObject, ObservableObject {
 
     func startMonitoring(clubs: [Club], notificationService: NotificationService) {
         self.notificationService = notificationService
+        locationErrorMessage = nil
 
         guard canMonitorGeofences else {
             locationErrorMessage = "Geofencing is not available on this device."
@@ -60,6 +61,7 @@ final class GeofenceManager: NSObject, ObservableObject {
         }
         monitoredClubIDs.removeAll()
         clubsByRegionID.removeAll()
+        locationErrorMessage = nil
     }
 
     func simulateEntry(for club: Club, notificationService: NotificationService) {
@@ -72,6 +74,9 @@ extension GeofenceManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         DispatchQueue.main.async {
             self.authorizationStatus = manager.authorizationStatus
+            if manager.authorizationStatus == .denied || manager.authorizationStatus == .restricted {
+                self.locationErrorMessage = "Location permission is off. Enable it in Settings to test live geofence alerts."
+            }
         }
     }
 

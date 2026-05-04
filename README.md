@@ -49,6 +49,23 @@ Manual fallback if the project file ever breaks:
 
 The source is split so each group member can own one or two screens without blocking the others.
 
+## Geofencing Demo
+
+The Map tab demonstrates `MapKit`, `CoreLocation`, and `UserNotifications`.
+
+Demo steps:
+
+1. Open the app in Xcode.
+2. Go to the Map tab.
+3. Select a club marker to show the selected club preview.
+4. Tap Enable to request notification and location permission.
+5. Tap Demo to simulate entering the selected club's geofence.
+6. Tap Stop alerts to stop monitoring all active club regions.
+
+Presentation note:
+
+The Demo button is included because physically walking into a campus geofence is not practical during a 5-minute lab presentation. The production path is still represented by `GeofenceManager`, which uses `CLLocationManager` and `CLCircularRegion` to monitor club locations.
+
 ## Git Branch Workflow
 
 Keep `main` stable. Each member should work on a feature branch.
