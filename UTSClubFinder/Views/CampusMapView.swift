@@ -65,8 +65,8 @@ struct CampusMapView: View {
                     Label("Enable", systemImage: "bell.badge.fill")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
-                        .background(geofenceManager.canMonitorGeofences ? AppTheme.utsGreen : AppTheme.line)
-                        .foregroundStyle(Color.white)
+                        .background(geofenceManager.canMonitorGeofences ? AppTheme.utsGreen.opacity(0.14) : AppTheme.surface)
+                        .foregroundStyle(AppTheme.ink)
                         .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
                 }
                 .buttonStyle(.plain)
@@ -77,11 +77,11 @@ struct CampusMapView: View {
                         geofenceManager.simulateEntry(for: club, notificationService: notificationService)
                     }
                 } label: {
-                    Label("Simulate Entry", systemImage: "play.fill")
+                    Label("Test Alert", systemImage: "play.fill")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
                         .background(AppTheme.utsGreen.opacity(0.12))
-                        .foregroundStyle(AppTheme.utsGreen)
+                        .foregroundStyle(AppTheme.ink)
                         .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
                 }
                 .buttonStyle(.plain)
@@ -113,9 +113,10 @@ struct CampusMapView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Campus geofence alerts")
                     .font(.headline)
+                    .foregroundStyle(AppTheme.ink)
                 Text(statusText)
                     .font(.caption)
-                    .foregroundStyle(AppTheme.muted)
+                    .foregroundStyle(AppTheme.ink)
             }
             Spacer()
             Image(systemName: geofenceManager.monitoredClubIDs.isEmpty ? "location" : "location.fill")
@@ -131,9 +132,9 @@ struct CampusMapView: View {
                 StatusPill(title: notificationPermissionText, systemImage: "bell.fill", isReady: canSendNotifications)
             }
 
-            Text("Enable alerts to monitor UTS club locations. Simulate Entry triggers the selected club's geofence notification for presentation purposes.")
+            Text("Enable alerts to monitor UTS club locations. Test Alert sends the same notification that would appear when entering the selected club's geofence.")
                 .font(.caption)
-                .foregroundStyle(AppTheme.muted)
+                .foregroundStyle(AppTheme.ink)
                 .fixedSize(horizontal: false, vertical: true)
         }
     }
@@ -151,9 +152,10 @@ struct CampusMapView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(selectedClub.name)
                         .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AppTheme.ink)
                     Text(selectedClub.meetingPlace)
                         .font(.caption)
-                        .foregroundStyle(AppTheme.muted)
+                        .foregroundStyle(AppTheme.ink)
                 }
 
                 Spacer()
@@ -163,6 +165,7 @@ struct CampusMapView: View {
                 } label: {
                     Text("Details")
                         .font(.caption.weight(.semibold))
+                        .foregroundStyle(AppTheme.ink)
                 }
                 .buttonStyle(.bordered)
             }
@@ -178,6 +181,10 @@ struct CampusMapView: View {
         }
         if geofenceManager.monitoredClubIDs.isEmpty {
             return "No active regions. Select Enable to start monitoring."
+        }
+        if let lastEnteredClubID = geofenceManager.lastEnteredClubID,
+           let club = repository.club(withID: lastEnteredClubID) {
+            return "Test alert sent for \(club.name)."
         }
         return "Monitoring \(geofenceManager.monitoredClubIDs.count) club regions."
     }
@@ -230,7 +237,7 @@ private struct StatusPill: View {
     var body: some View {
         Label(title, systemImage: systemImage)
             .font(.caption.weight(.semibold))
-            .foregroundStyle(isReady ? AppTheme.utsGreen : AppTheme.muted)
+            .foregroundStyle(AppTheme.ink)
             .padding(.horizontal, 10)
             .padding(.vertical, 7)
             .background(isReady ? AppTheme.utsGreen.opacity(0.10) : AppTheme.surface)

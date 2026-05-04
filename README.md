@@ -59,12 +59,12 @@ Demo steps:
 2. Go to the Map tab.
 3. Select a club marker to show the selected club preview.
 4. Tap Enable to request notification and location permission.
-5. Tap Simulate Entry to simulate entering the selected club's geofence.
+5. Tap Test Alert to send the same notification that would appear when entering the selected club's geofence.
 6. Tap Stop alerts to stop monitoring all active club regions.
 
 Presentation note:
 
-The Simulate Entry button is included because physically walking into a campus geofence is not practical during a 5-minute lab presentation. The production path is still represented by `GeofenceManager`, which uses `CLLocationManager` and `CLCircularRegion` to monitor club locations.
+The Test Alert button is included because physically walking into a campus geofence is not practical during a 5-minute lab presentation. The production path is still represented by `GeofenceManager`, which uses `CLLocationManager` and `CLCircularRegion` to monitor club locations.
 
 ## Git Branch Workflow
 
