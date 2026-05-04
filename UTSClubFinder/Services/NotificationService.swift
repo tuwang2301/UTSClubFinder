@@ -1,8 +1,13 @@
 import Foundation
 import UserNotifications
 
-final class NotificationService: ObservableObject {
+final class NotificationService: NSObject, ObservableObject {
     @Published private(set) var authorizationStatus: UNAuthorizationStatus = .notDetermined
+
+    override init() {
+        super.init()
+        UNUserNotificationCenter.current().delegate = self
+    }
 
     func refreshAuthorizationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
@@ -30,5 +35,15 @@ final class NotificationService: ObservableObject {
             trigger: nil
         )
         UNUserNotificationCenter.current().add(request)
+    }
+}
+
+extension NotificationService: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([.banner, .sound])
     }
 }
