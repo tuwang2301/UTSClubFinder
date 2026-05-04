@@ -15,7 +15,7 @@ struct CategoryChip: View {
                 Text(title)
             }
             .font(.subheadline.weight(.semibold))
-            .foregroundStyle(isSelected ? Color.white : AppTheme.ink)
+            .foregroundStyle(AppTheme.ink)
             .padding(.horizontal, 12)
             .padding(.vertical, 9)
             .background(isSelected ? AppTheme.utsGreen : Color.white)
