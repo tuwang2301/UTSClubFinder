@@ -64,8 +64,12 @@ struct CampusMapView: View {
                 } label: {
                     Label("Enable", systemImage: "bell.badge.fill")
                         .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(geofenceManager.canMonitorGeofences ? AppTheme.utsGreen : AppTheme.line)
+                        .foregroundStyle(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.plain)
                 .disabled(!geofenceManager.canMonitorGeofences)
 
                 Button {
@@ -73,10 +77,14 @@ struct CampusMapView: View {
                         geofenceManager.simulateEntry(for: club, notificationService: notificationService)
                     }
                 } label: {
-                    Label("Demo", systemImage: "play.fill")
+                    Label("Simulate Entry", systemImage: "play.fill")
                         .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(AppTheme.utsGreen.opacity(0.12))
+                        .foregroundStyle(AppTheme.utsGreen)
+                        .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.plain)
             }
 
             Button {
@@ -84,8 +92,16 @@ struct CampusMapView: View {
             } label: {
                 Label("Stop alerts", systemImage: "bell.slash.fill")
                     .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .background(geofenceManager.monitoredClubIDs.isEmpty ? AppTheme.surface : Color.white)
+                    .foregroundStyle(geofenceManager.monitoredClubIDs.isEmpty ? AppTheme.muted : AppTheme.ink)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: AppTheme.cornerRadius)
+                            .stroke(AppTheme.line, lineWidth: 1)
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(.plain)
             .disabled(geofenceManager.monitoredClubIDs.isEmpty)
         }
         .padding(16)
@@ -115,7 +131,7 @@ struct CampusMapView: View {
                 StatusPill(title: notificationPermissionText, systemImage: "bell.fill", isReady: canSendNotifications)
             }
 
-            Text("Enable alerts to monitor UTS club locations. The Demo button simulates entering the selected club's geofence for presentation purposes.")
+            Text("Enable alerts to monitor UTS club locations. Simulate Entry triggers the selected club's geofence notification for presentation purposes.")
                 .font(.caption)
                 .foregroundStyle(AppTheme.muted)
                 .fixedSize(horizontal: false, vertical: true)

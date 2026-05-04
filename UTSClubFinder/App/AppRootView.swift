@@ -38,5 +38,9 @@ struct AppRootView: View {
                 Label("Profile", systemImage: "person.crop.circle.fill")
             }
         }
+        .tint(AppTheme.utsGreen)
+        .toolbarBackground(Color.white, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
+        .toolbarColorScheme(.light, for: .tabBar)
     }
 }
