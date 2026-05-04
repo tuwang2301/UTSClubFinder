@@ -28,6 +28,7 @@ final class NotificationService: NSObject, ObservableObject {
         content.title = "You're near \(club.name)"
         content.body = "Drop by \(club.meetingPlace) or save the next event."
         content.sound = .default
+        content.attachments = notificationLogoAttachment()
 
         let request = UNNotificationRequest(
             identifier: "club-geofence-\(club.id.uuidString)",
@@ -35,6 +36,16 @@ final class NotificationService: NSObject, ObservableObject {
             trigger: nil
         )
         UNUserNotificationCenter.current().add(request)
+    }
+
+    private func notificationLogoAttachment() -> [UNNotificationAttachment] {
+        guard let logoURL = Bundle.main.url(forResource: "notification-logo", withExtension: "png"),
+              let attachment = try? UNNotificationAttachment(identifier: "notification-logo", url: logoURL)
+        else {
+            return []
+        }
+
+        return [attachment]
     }
 }
 
