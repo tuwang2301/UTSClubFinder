@@ -37,10 +37,10 @@ struct DirectoryView: View {
 
             Section {
                 if filteredClubs.isEmpty {
-                    ContentUnavailableView(
-                        "No matching clubs",
+                    EmptyStateView(
+                        title: "No matching clubs",
                         systemImage: "magnifyingglass",
-                        description: Text("Try a different keyword or category.")
+                        message: "Try a different keyword or category."
                     )
                     .listRowBackground(AppTheme.surface)
                 } else {

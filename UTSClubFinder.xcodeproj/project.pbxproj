@@ -25,6 +25,7 @@
 		A00000000000000000000016 /* SavedClubsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000016 /* SavedClubsView.swift */; };
 		A00000000000000000000017 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000017 /* ProfileView.swift */; };
 		A00000000000000000000018 /* ClubRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000018 /* ClubRepositoryTests.swift */; };
+		A00000000000000000000019 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000022 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B00000000000000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B00000000000000000000020 /* UTSClubFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTSClubFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00000000000000000000021 /* UTSClubFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UTSClubFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00000000000000000000022 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				B00000000000000000000010 /* ClubCardView.swift */,
 				B00000000000000000000011 /* CategoryChip.swift */,
+				B00000000000000000000022 /* EmptyStateView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				A00000000000000000000015 /* CampusMapView.swift in Sources */,
 				A00000000000000000000016 /* SavedClubsView.swift in Sources */,
 				A00000000000000000000017 /* ProfileView.swift in Sources */,
+				A00000000000000000000019 /* EmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

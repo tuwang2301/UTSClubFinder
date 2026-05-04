@@ -26,6 +26,7 @@ struct AppRootView: View {
             NavigationStack {
                 HomeView()
             }
+            .appNavigationChrome()
             .tabItem {
                 Label("Home", systemImage: "house.fill")
             }
@@ -33,6 +34,7 @@ struct AppRootView: View {
             NavigationStack {
                 DirectoryView()
             }
+            .appNavigationChrome()
             .tabItem {
                 Label("Clubs", systemImage: "person.3.fill")
             }
@@ -40,6 +42,7 @@ struct AppRootView: View {
             NavigationStack {
                 CampusMapView()
             }
+            .appNavigationChrome()
             .tabItem {
                 Label("Map", systemImage: "map.fill")
             }
@@ -47,6 +50,7 @@ struct AppRootView: View {
             NavigationStack {
                 SavedClubsView()
             }
+            .appNavigationChrome()
             .tabItem {
                 Label("Saved", systemImage: "bookmark.fill")
             }
@@ -54,6 +58,7 @@ struct AppRootView: View {
             NavigationStack {
                 ProfileView()
             }
+            .appNavigationChrome()
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle.fill")
             }
@@ -62,5 +67,14 @@ struct AppRootView: View {
         .toolbarBackground(Color.white, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
         .toolbarColorScheme(.light, for: .tabBar)
+    }
+}
+
+private extension View {
+    func appNavigationChrome() -> some View {
+        self
+            .toolbarBackground(Color.white, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.light, for: .navigationBar)
     }
 }

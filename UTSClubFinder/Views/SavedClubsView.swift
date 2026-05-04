@@ -6,10 +6,10 @@ struct SavedClubsView: View {
     var body: some View {
         List {
             if repository.savedClubs.isEmpty {
-                ContentUnavailableView(
-                    "No saved clubs yet",
+                EmptyStateView(
+                    title: "No saved clubs yet",
                     systemImage: "bookmark",
-                    description: Text("Save clubs from the directory to build your shortlist.")
+                    message: "Save clubs from the directory to build your shortlist."
                 )
                 .listRowBackground(AppTheme.surface)
             } else {
