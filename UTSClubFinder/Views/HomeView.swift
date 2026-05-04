@@ -38,12 +38,12 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Find your people on campus")
                         .font(.largeTitle.weight(.bold))
-                        .foregroundStyle(AppTheme.ink)
+                        .foregroundStyle(Color.white)
                         .fixedSize(horizontal: false, vertical: true)
 
                     Text("Browse clubs, save events, and get a prompt when you are nearby.")
                         .font(.body)
-                        .foregroundStyle(AppTheme.ink)
+                        .foregroundStyle(Color.white.opacity(0.88))
                 }
 
                 Spacer(minLength: 12)
@@ -61,7 +61,7 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                     .background(Color.white)
-                    .foregroundStyle(AppTheme.ink)
+                    .foregroundStyle(AppTheme.utsGreen)
                     .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius))
             }
         }
