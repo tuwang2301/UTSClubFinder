@@ -36,6 +36,24 @@ struct DirectoryView: View {
             }
 
             Section {
+                Menu {
+                    ForEach(ClubDirectoryViewModel.SortOption.allCases) { option in
+                        Button {
+                            viewModel.selectedSortOption = option
+                        } label: {
+                            if viewModel.selectedSortOption == option {
+                                Label(option.rawValue, systemImage: "checkmark")
+                            } else {
+                                Text(option.rawValue)
+                            }
+                        }
+                    }
+                } label: {
+                    Label("Sort: \(viewModel.selectedSortOption.rawValue)", systemImage: "arrow.up.arrow.down")
+                        .font(.subheadline.weight(.semibold))
+                }
+                .listRowBackground(AppTheme.surface)
+
                 if filteredClubs.isEmpty {
                     EmptyStateView(
                         title: "No matching clubs",
