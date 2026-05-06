@@ -65,6 +65,7 @@ struct DirectoryView: View {
                 } label: {
                     Label("Sort: \(viewModel.selectedSortOption.rawValue)", systemImage: "arrow.up.arrow.down")
                         .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AppTheme.ink)
                 }
                 .listRowBackground(AppTheme.surface)
 
