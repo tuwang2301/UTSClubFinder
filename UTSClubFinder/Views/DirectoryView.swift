@@ -8,6 +8,20 @@ struct DirectoryView: View {
         viewModel.filteredClubs(from: repository.clubs)
     }
 
+    var emptyStateMessage: String {
+        let hasSearchText = !viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+
+        if hasSearchText, let category = viewModel.selectedCategory {
+            return "No clubs match your search in \(category.rawValue). Try another keyword or clear filters."
+        } else if hasSearchText {
+            return "No clubs match your search. Try another keyword or reset your search."
+        } else if let category = viewModel.selectedCategory {
+            return "No clubs found in \(category.rawValue). Clear filters to browse all clubs."
+        } else {
+            return "No clubs are available right now."
+        }
+    }
+
     var body: some View {
         List {
             Section {
@@ -58,7 +72,12 @@ struct DirectoryView: View {
                     EmptyStateView(
                         title: "No matching clubs",
                         systemImage: "magnifyingglass",
-                        message: "Try a different keyword or category."
+                        message: emptyStateMessage,
+                        actionTitle: "Clear filters",
+                        action: {
+                            viewModel.searchText = ""
+                            viewModel.selectedCategory = nil
+                        }
                     )
                     .listRowBackground(AppTheme.surface)
                 } else {
