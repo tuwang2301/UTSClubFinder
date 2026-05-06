@@ -30,6 +30,7 @@ final class ClubDirectoryViewModel: ObservableObject {
 
         return club.name.localizedCaseInsensitiveContains(query)
             || club.tagline.localizedCaseInsensitiveContains(query)
+            || club.category.rawValue.localizedCaseInsensitiveContains(query)
             || club.tags.contains { $0.localizedCaseInsensitiveContains(query) }
     }
 

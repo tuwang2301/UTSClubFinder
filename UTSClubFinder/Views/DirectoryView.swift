@@ -83,6 +83,6 @@ struct DirectoryView: View {
         .scrollContentBackground(.hidden)
         .background(AppTheme.surface)
         .navigationTitle("Clubs")
-        .searchable(text: $viewModel.searchText, prompt: "Search clubs or tags")
+        .searchable(text: $viewModel.searchText, prompt: "Search clubs, tags, or categories")
     }
 }
