@@ -14,6 +14,10 @@ struct Club: Identifiable, Equatable, Hashable {
     let memberCount: Int
     let tags: [String]
     let upcomingEvents: [ClubEvent]
+    let facebookURL: String
+    let instagramURL: String
+    let websiteURL: String
+    // ---------------------------
 
     init(
         id: UUID = UUID(),
@@ -28,7 +32,10 @@ struct Club: Identifiable, Equatable, Hashable {
         weeklyMeetup: String,
         memberCount: Int,
         tags: [String],
-        upcomingEvents: [ClubEvent]
+        upcomingEvents: [ClubEvent],
+        facebookURL: String = "https://facebook.com/activateuts",
+        instagramURL: String = "https://instagram.com/activateuts",
+        websiteURL: String = "https://www.activateuts.com.au/clubs/"
     ) {
         self.id = id
         self.name = name
@@ -42,6 +49,9 @@ struct Club: Identifiable, Equatable, Hashable {
         self.memberCount = memberCount
         self.tags = tags
         self.upcomingEvents = upcomingEvents
+        self.facebookURL = facebookURL
+        self.instagramURL = instagramURL
+        self.websiteURL = websiteURL
     }
 
     static func == (lhs: Club, rhs: Club) -> Bool {
@@ -58,8 +68,8 @@ enum ClubCategory: String, CaseIterable, Identifiable {
     case culture = "Culture"
     case sport = "Sport"
     case creative = "Creative"
-    case volunteering = "Volunteering"
     case academic = "Academic"
+    case games = "Games"
 
     var id: String { rawValue }
 
@@ -69,8 +79,8 @@ enum ClubCategory: String, CaseIterable, Identifiable {
         case .culture: "globe.asia.australia.fill"
         case .sport: "figure.run"
         case .creative: "paintpalette.fill"
-        case .volunteering: "heart.fill"
         case .academic: "graduationcap.fill"
+        case .games: "gamecontroller.fill"
         }
     }
 }
