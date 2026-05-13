@@ -138,16 +138,36 @@ Presentation note: the Test Alert button is included because physically walking 
 
 Add screenshots to a `Screenshots/` folder before final submission. Recommended captures:
 
-1. `01-home.png`: Home screen with featured clubs.
-2. `02-directory-filter.png`: Clubs screen showing category filters/search.
-3. `03-club-detail.png`: Club detail screen with events and social links.
-4. `04-register-validation.png`: Register Interest form showing validation or completed fields.
-5. `05-saved-clubs.png`: Saved screen after saving at least one club.
-6. `06-map-selected-club.png`: Map screen with a selected club preview.
-7. `07-geofence-alert.png`: iPhone notification banner after tapping Test Alert.
-8. `08-app-icon.png`: app icon visible on the iPhone home screen.
+1. `01-home.jpg`: Home screen with featured clubs.
+2. `02-directory-filter.jpg`: Clubs screen showing category filters/search.
+3. `03-club-detail.jpg`: Club detail screen with events and social links.
+4. `04-register-validation.jpg`: Register Interest form showing validation or completed fields.
+5. `05-saved-clubs.jpg`: Saved screen after saving at least one club.
+6. `06-map-selected-club.jpg`: Map screen with a selected club preview.
+7. `07-geofence-alert.jpg`: iPhone notification banner after tapping Test Alert.
+8. `08-app-icon.jpg`: app icon visible on the iPhone home screen.
 
 For the final presentation, the most important screenshots are Home, Directory, Club Detail, Register Interest, Map/Test Alert, and Notification.
+
+## App Screenshots
+
+The following screenshots were captured from a physical iPhone.
+
+| Home | Clubs |
+| --- | --- |
+| ![Home screen](Screenshots/01-home.jpg) | ![Club directory with filters](Screenshots/02-directory-filter.jpg) |
+
+| Club Detail | Saved |
+| --- | --- |
+| ![Club detail screen](Screenshots/03-club-detail.jpg) | ![Saved clubs screen](Screenshots/05-saved-clubs.jpg) |
+
+| Map And Geofence Controls | Notification Alert |
+| --- | --- |
+| ![Campus map with geofence controls](Screenshots/06-map-selected-club.jpg) | ![Geofence notification alert](Screenshots/07-geofence-alert.jpg) |
+
+| App Icon |
+| --- |
+| ![UTS Club Finder app icon](Screenshots/08-app-icon.jpg) |
 
 ## How To Open
 
