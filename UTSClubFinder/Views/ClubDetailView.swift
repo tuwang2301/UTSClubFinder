@@ -53,6 +53,9 @@ struct ClubDetailView: View {
                 .frame(maxWidth: .infinity)
             }
         }
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 16)
+        }
         .navigationTitle(club.name)
         .navigationBarTitleDisplayMode(.inline)
         

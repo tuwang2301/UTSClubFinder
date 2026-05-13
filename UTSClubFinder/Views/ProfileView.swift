@@ -51,6 +51,9 @@ struct ProfileView: View {
             .padding(20)
         }
         .background(AppTheme.surface)
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 16)
+        }
         .navigationTitle("Profile")
     }
 }

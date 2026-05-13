@@ -64,6 +64,9 @@ struct DirectoryView: View {
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         .background(AppTheme.surface)
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 16)
+        }
         .navigationTitle("Clubs")
         .searchable(text: $viewModel.searchText, prompt: "Search clubs or tags")
     }

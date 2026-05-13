@@ -32,6 +32,9 @@ struct SavedClubsView: View {
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         .background(AppTheme.surface)
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 16)
+        }
         .navigationTitle("Saved")
     }
 }
