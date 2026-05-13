@@ -89,4 +89,3 @@ struct SavedClubsView: View {
         .frame(height: UIScreen.main.bounds.height * 0.65)
     }
 }
-

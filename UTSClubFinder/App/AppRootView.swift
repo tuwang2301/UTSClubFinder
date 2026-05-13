@@ -26,12 +26,9 @@ struct AppRootView: View {
         UINavigationBar.appearance().tintColor = UIColor(AppTheme.utsGreen)
 
         let tabAppearance = UITabBarAppearance()
-        tabAppearance.configureWithOpaqueBackground()
-        tabAppearance.backgroundColor = .white
+        tabAppearance.configureWithDefaultBackground()
         UITabBar.appearance().standardAppearance = tabAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabAppearance
-        UITabBar.appearance().barStyle = .default
-        UITabBar.appearance().isTranslucent = false
     }
 
     var body: some View {
@@ -77,9 +74,6 @@ struct AppRootView: View {
             }
         }
         .tint(AppTheme.utsGreen)
-        .toolbarBackground(Color.white, for: .tabBar)
-        .toolbarBackground(.visible, for: .tabBar)
-        .toolbarColorScheme(.light, for: .tabBar)
         .preferredColorScheme(.light)
     }
 }

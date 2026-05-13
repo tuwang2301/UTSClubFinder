@@ -105,6 +105,7 @@ struct CampusMapView: View {
             .disabled(geofenceManager.monitoredClubIDs.isEmpty)
         }
         .padding(16)
+        .padding(.bottom, 16)
         .background(Color.white)
     }
 
