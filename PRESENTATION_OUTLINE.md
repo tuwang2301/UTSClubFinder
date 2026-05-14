@@ -14,16 +14,16 @@ Compared with posters or Instagram pages, UTS Club Finder combines structured ca
 
 ## 2:00-3:00 Demo
 
-Show Home, Clubs search/filter, Club Detail, Save Club, Map, and the geofence Demo button.
+Show Home, Clubs search/filter, Club Detail, Register Interest validation, Save Club, Saved list, Map, Test Alert notification, and Profile.
 
 ## 3:00-3:40 Frameworks
 
-SwiftUI builds the interface and navigation. MapKit displays campus locations. CoreLocation monitors nearby club regions. UserNotifications sends the geofence alert.
+SwiftUI builds the interface and navigation. MapKit displays campus locations. CoreLocation monitors nearby club regions. UserNotifications sends the geofence alert. UIKit is used for app-level appearance tuning, notification attachment support, and haptic feedback.
 
 ## 3:40-4:25 Difficulty
 
-The main difficulty was geofencing because location permission, notification permission, and simulator testing can fail separately. We solved this by separating logic into `GeofenceManager` and `NotificationService`, then adding a demo entry path.
+The main difficulty was geofencing because location permission, notification permission, foreground notification behaviour, and simulator testing can fail separately. We solved this by separating logic into `GeofenceManager` and `NotificationService`, testing on a physical iPhone, and adding a Test Alert path for the five-minute demo.
 
 ## 4:25-5:00 Product Design Cycle
 
-We started with an HTML prototype, converted it into a SwiftUI MVP, tested the core flows, and split improvements by screen so each member could iterate independently.
+We started with an HTML prototype, converted it into a SwiftUI MVP, tested the core flows on simulator and iPhone, then refined navigation contrast, empty states, notification branding, and screen responsibilities through group task splitting.

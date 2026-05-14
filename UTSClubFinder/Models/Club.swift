@@ -17,7 +17,6 @@ struct Club: Identifiable, Equatable, Hashable {
     let facebookURL: String
     let instagramURL: String
     let websiteURL: String
-    // ---------------------------
 
     init(
         id: UUID = UUID(),

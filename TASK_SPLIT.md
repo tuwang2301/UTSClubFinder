@@ -1,6 +1,6 @@
 # Team Task Split
 
-This file defines the suggested work split for a 4-member group. Each member should work on a separate feature branch, commit small changes, and open a Pull Request into `main`.
+This file is team-planning and collaboration evidence for the group-work rubric. It records suggested screen ownership for a 4-member group; it is not required to build or run the app.
 
 ## Member 1: Home + Club Directory
 

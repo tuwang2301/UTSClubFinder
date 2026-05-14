@@ -29,7 +29,7 @@ struct SavedClubsView: View {
                         Button{
                             repository.setFavourite(false, for: club)
                         } label: {
-                            Label ("Remove", systemImage: "trashfill")
+                            Label("Remove", systemImage: "trash.fill")
                         }
                         .tint(.red)
                     }
@@ -44,7 +44,7 @@ struct SavedClubsView: View {
     }
     private var savedTitle: String {
         let count = repository.savedClubs.count
-        return count == 0 ? "Saved" : " Saved : (\(count))"
+        return count == 0 ? "Saved" : "Saved (\(count))"
     }
     
     

@@ -141,7 +141,7 @@ Add screenshots to a `Screenshots/` folder before final submission. Recommended 
 1. `01-home.jpg`: Home screen with featured clubs.
 2. `02-directory-filter.jpg`: Clubs screen showing category filters/search.
 3. `03-club-detail.jpg`: Club detail screen with events and social links.
-4. `04-register-validation.jpg`: Register Interest form showing validation or completed fields.
+4. Optional `04-register-validation.jpg`: Register Interest form showing validation or completed fields.
 5. `05-saved-clubs.jpg`: Saved screen after saving at least one club.
 6. `06-map-selected-club.jpg`: Map screen with a selected club preview.
 7. `07-geofence-alert.jpg`: iPhone notification banner after tapping Test Alert.
@@ -188,83 +188,14 @@ open UTSClubFinder.xcodeproj
 
 If Xcode asks for signing, select the `UTSClubFinder` app target, open Signing & Capabilities, then choose an Apple Developer team or personal team.
 
-## Git Branch Workflow
+## Team Collaboration Notes
 
-Keep `main` stable. Each member should work on a feature branch.
+This section is included as evidence for the group-work rubric. The repository history should show each teammate contributing through small commits or branches/PRs for separate screens and services.
 
-Branch name format:
-
-```bash
-feature/<screen-or-task-name>
-```
-
-Examples:
-
-```bash
-feature/home-directory
-feature/club-detail
-feature/map-geofence
-feature/saved-profile-docs
-```
-
-Create a branch:
-
-```bash
-git checkout main
-git pull
-git checkout -b feature/map-geofence
-```
-
-Push a branch:
-
-```bash
-git push -u origin feature/map-geofence
-```
-
-## Commit Message Format
-
-Use small commits. One commit should describe one meaningful change.
-
-Format:
-
-```text
-type(scope): short summary
-```
-
-Allowed types:
-
-- `feat`: new feature or screen
-- `fix`: bug fix
-- `style`: visual/UI changes only
-- `refactor`: code structure change without new behaviour
-- `docs`: README, presentation, or planning docs
-- `test`: unit tests or test data
-- `chore`: project setup or config
-
-Examples:
-
-```bash
-git commit -m "feat(map): add campus geofence controls"
-git commit -m "style(home): align hero with UTS green theme"
-git commit -m "fix(directory): handle empty search results"
-git commit -m "docs(readme): add Xcode setup steps"
-```
-
-## Pull Request And Merge Rules
-
-Recommended PR process:
-
-1. Push your feature branch.
-2. Open a Pull Request into `main`.
-3. Add a short PR description explaining what changed and how it was tested.
-4. Include screenshots if the UI changed.
-5. Ask one teammate to review.
-6. Merge only after Xcode builds successfully.
-
-Do not force push to `main`. Do not rewrite another member's commits unless the whole group agrees.
+For day-to-day group work, keep `main` stable, test in Xcode before merging, and include screenshots when a UI change is made. Detailed screen ownership and branch suggestions are kept in `TASK_SPLIT.md` so the submission README stays focused on the product and rubric.
 
 ## Supporting Files
 
-- `TASK_SPLIT.md`: group task ownership and branch plan.
+- `TASK_SPLIT.md`: team planning and collaboration evidence; not required to run the app.
 - `PRESENTATION_OUTLINE.md`: five-minute presentation structure.
 - `RUBRIC_NOTES.md`: code-design rubric notes.

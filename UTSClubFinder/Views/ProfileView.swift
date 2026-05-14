@@ -73,29 +73,6 @@ struct ProfileView: View {
     }
 }
 
-//private struct InterestRow: View {
-//    let icon: String
-//    let title: String
-//    let detail: String
-//
-//    var body: some View {
-//        HStack(alignment: .top, spacing: 12) {
-//            Image(systemName: icon)
-//                .foregroundStyle(AppTheme.utsGreen)
-//                .frame(width: 24)
-//            VStack(alignment: .leading, spacing: 3) {
-//                Text(title)
-//                    .font(.subheadline.weight(.semibold))
-//                Text(detail)
-//                    .font(.caption)
-//                    .foregroundStyle(AppTheme.muted)
-//            }
-//            Spacer()
-//        }
-//    }
-//}
-
-
 // MARK: Sign-In Card
 private struct SignInCard: View{
     let onSignIn: (String) -> Void
