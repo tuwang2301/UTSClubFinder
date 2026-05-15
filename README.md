@@ -134,21 +134,6 @@ Demo steps:
 
 Presentation note: the Test Alert button is included because physically walking into a campus geofence is not practical during a five-minute lab presentation. The production path is still represented by `GeofenceManager`, which uses `CLLocationManager` and `CLCircularRegion`.
 
-## Recommended Screenshots To Capture
-
-Add screenshots to a `Screenshots/` folder before final submission. Recommended captures:
-
-1. `01-home.jpg`: Home screen with featured clubs.
-2. `02-directory-filter.jpg`: Clubs screen showing category filters/search.
-3. `03-club-detail.jpg`: Club detail screen with events and social links.
-4. Optional `04-register-validation.jpg`: Register Interest form showing validation or completed fields.
-5. `05-saved-clubs.jpg`: Saved screen after saving at least one club.
-6. `06-map-selected-club.jpg`: Map screen with a selected club preview.
-7. `07-geofence-alert.jpg`: iPhone notification banner after tapping Test Alert.
-8. `08-app-icon.jpg`: app icon visible on the iPhone home screen.
-
-For the final presentation, the most important screenshots are Home, Directory, Club Detail, Register Interest, Map/Test Alert, and Notification.
-
 ## App Screenshots
 
 The following screenshots were captured from a physical iPhone.
