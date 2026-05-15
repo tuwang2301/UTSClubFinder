@@ -6,8 +6,11 @@ UTS Club Finder is a SwiftUI iOS application that helps UTS students discover cl
 
 ## Group Members:
 26139333 - Quang Tu Nguyen
+
 25213481 - Sarthak Verma
+
 25150653 - Thailong Chrin
+
 25628367 - Leah Kim
 
 ## Target Audience
