@@ -4,6 +4,12 @@ GitHub repository: https://github.com/tuwang2301/UTSClubFinder
 
 UTS Club Finder is a SwiftUI iOS application that helps UTS students discover clubs, compare events, save clubs, view club locations on campus, and receive location-aware club alerts.
 
+## Group Members:
+26139333 - Quang Tu Nguyen
+25213481 - Sarthak Verma
+25150653 - Thailong Chrin
+25628367 - Leah Kim
+
 ## Target Audience
 
 The target audience is UTS students, especially first-year, international, and socially new students who want to find communities on campus but do not know where club information is published.
