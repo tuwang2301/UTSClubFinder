@@ -18,7 +18,7 @@ struct CategoryChip: View {
             .foregroundStyle(isSelected ? Color.white : AppTheme.ink)
             .padding(.horizontal, 12)
             .padding(.vertical, 9)
-            .background(isSelected ? AppTheme.utsGreen : Color.white)
+            .background(isSelected ? AppTheme.utsGreen : AppTheme.card)
             .overlay(
                 Capsule()
                     .stroke(isSelected ? AppTheme.utsGreen : AppTheme.line, lineWidth: 1)

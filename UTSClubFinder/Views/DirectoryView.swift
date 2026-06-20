@@ -8,6 +8,20 @@ struct DirectoryView: View {
         viewModel.filteredClubs(from: repository.clubs)
     }
 
+    var emptyStateMessage: String {
+        let hasSearchText = !viewModel.searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+
+        if hasSearchText, let category = viewModel.selectedCategory {
+            return "No clubs match your search in \(category.rawValue). Try another keyword or clear filters."
+        } else if hasSearchText {
+            return "No clubs match your search. Try another keyword or reset your search."
+        } else if let category = viewModel.selectedCategory {
+            return "No clubs found in \(category.rawValue). Clear filters to browse all clubs."
+        } else {
+            return "No clubs are available right now."
+        }
+    }
+
     var body: some View {
         List {
             Section {
@@ -36,11 +50,35 @@ struct DirectoryView: View {
             }
 
             Section {
+                Menu {
+                    ForEach(ClubDirectoryViewModel.SortOption.allCases) { option in
+                        Button {
+                            viewModel.selectedSortOption = option
+                        } label: {
+                            if viewModel.selectedSortOption == option {
+                                Label(option.rawValue, systemImage: "checkmark")
+                            } else {
+                                Text(option.rawValue)
+                            }
+                        }
+                    }
+                } label: {
+                    Label("Sort: \(viewModel.selectedSortOption.rawValue)", systemImage: "arrow.up.arrow.down")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AppTheme.ink)
+                }
+                .listRowBackground(AppTheme.surface)
+
                 if filteredClubs.isEmpty {
                     EmptyStateView(
                         title: "No matching clubs",
                         systemImage: "magnifyingglass",
-                        message: "Try a different keyword or category."
+                        message: emptyStateMessage,
+                        actionTitle: "Clear filters",
+                        action: {
+                            viewModel.searchText = ""
+                            viewModel.selectedCategory = nil
+                        }
                     )
                     .listRowBackground(AppTheme.surface)
                 } else {
@@ -68,6 +106,6 @@ struct DirectoryView: View {
             Color.clear.frame(height: 16)
         }
         .navigationTitle("Clubs")
-        .searchable(text: $viewModel.searchText, prompt: "Search clubs or tags")
+        .searchable(text: $viewModel.searchText, prompt: "Search clubs, tags, or categories")
     }
 }
